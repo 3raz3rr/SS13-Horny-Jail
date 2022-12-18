@@ -4,8 +4,6 @@
 		"Station Director",
 		"Station Commander",
 		"Station Overseer",
-		"Stationmaster",
-		"Condom",
 		"Senator"
 	)
 	LAZYADD(alt_titles, extra_titles)
@@ -33,7 +31,7 @@
 /datum/job/hos/New()
 	var/list/extra_titles = list(
 		"Security Commander",
-		"Head of Slutcurity",
+		"Commandant",
 		"Commissar"
 	)
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
@@ -59,8 +57,7 @@
 /datum/job/cmo
 	alt_titles = list(
 		"Medical Director",
-		"Medical Administrator",
-		"Chief Heal Slut"
+		"Medical Administrator"
 	) // Sandcode do not have alt titles for CMO at the moment.
 
 
@@ -90,21 +87,15 @@
 	var/list/extra_titles = list(
 		"Volunteer",
 		"Morale Officer",
-		"Stripper",
 		"Escort",
 		"Tourist",
 		"Clerk",
 		"Blacksmith",
 		"Waiter",
-		"All-purpose fleshlight",
-		"All-purpose dildo",
-		"Cumdump",
 		"Greytider",
 		"Bard",
 		"Snack",
-		"Stress Relief",
-		"Freeloader",
-		"Station Pet"
+		"Freeloader"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -122,7 +113,7 @@
 
 /datum/job/janitor/New()
 	var/list/extra_titles = list(
-		"Slutty Maid"
+		"Maid"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -144,7 +135,6 @@
 /datum/job/cook/New()
 	var/list/extra_titles = list(
 		"Chef de partie",
-		"Prey Prepper",
 		"Poissonier",
 		"Baker"
 	)
@@ -198,8 +188,7 @@
 		"Researcher",
 		"Toxins Researcher",
 		"Research Intern",
-		"Junior Scientist",
-		"Rack Researcher"
+		"Junior Scientist"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -217,8 +206,7 @@
 	var/list/extra_titles = list(
 		"Alchemist",
 		"Apothecarist",
-		"Chemical Plumber",
-		"Chemi-Slut"
+		"Chemical Plumber"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -228,8 +216,7 @@
 		"Physician",
 		"Medical Intern",
 		"Medical Resident",
-		"Medtech",
-		"Medi-Slut"
+		"Medtech"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -240,27 +227,21 @@
 		"Psychiatrist",
 		"Hypnotist",
 		"Hypnosis Expert",
-		"Hypnotherapist",
-		"Sex Educator",
-		"Rental Mommy",
-		"Rental Daddy",
-		"Psycholo-Slut"
+		"Hypnotherapist"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
 /datum/job/geneticist/New()
 	var/list/extra_titles = list(
-		"Genetics Researcher",
-		"Gene-Slut"
+		"Genetics Researcher"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
 
 /datum/job/paramedic/New()
 	var/list/extra_titles = list(
-		"Trauma Team",
-		"Para-Slut"
+		"Trauma Team"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -268,8 +249,7 @@
 /datum/job/virologist/New()
 	var/list/extra_titles = list(
 		"Microbiologist",
-		"Biochemist",
-		"Viro-Slut"
+		"Biochemist"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -278,11 +258,8 @@
 // Security
 /datum/job/detective/New()
 	var/list/extra_titles = list(
-		"Gumshoe",
-		"Slutective",
 		"Van Dorn Agent",
 		"Forensic Investigator",
-		"Cinder Dick",
 		"Cooperate Auditor"
 	)
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
@@ -296,7 +273,7 @@
 		"Probation Officer",
 		"Guardsman",
 		"Police Officer",
-		"Slutcurity Officer"
+		"Security Lieutenant"
 	)
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
 		LAZYADD(extra_titles, "Spookcurity Officer")
@@ -308,9 +285,7 @@
 		"Prison Chief",
 		"Armory Manager",
 		"Prison Administrator",
-		"Dungeon Master",
-		"Brig Superintendent",
-		"Voreden"
+		"Brig Superintendent"
 	)
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
 		LAZYADD(extra_titles, "Spookden")
@@ -335,8 +310,6 @@
 		"Exotic Ore Miner",
 		"Digger",
 		"Hunter",
-		"Ashwalker Sex Slave",
-		"Ashwalker Breeder",
 		"Slayer"
 	)
 	LAZYADD(alt_titles, extra_titles)
