@@ -203,16 +203,6 @@ SUBSYSTEM_DEF(garbage)
 				var/type = D.type
 				var/datum/qdel_item/I = items[type]
 
-				log_world("## TESTING: GC: -- \ref[D] | [type] was unable to be GC'd --")
-				#ifdef TESTING
-				for(var/c in GLOB.admins) //Using testing() here would fill the logs with ADMIN_VV garbage
-					var/client/admin = c
-					if(!check_rights_for(admin, R_ADMIN))
-						continue
-					to_chat(admin, "## TESTING: GC: -- [ADMIN_VV(D)] | [type] was unable to be GC'd --")
-				#endif
-				I.failures++
-
 				if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
 					#ifdef REFERENCE_TRACKING
 					if(ref_searching)
