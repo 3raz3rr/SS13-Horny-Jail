@@ -23,7 +23,7 @@
 	needs_physical_contact = TRUE
 
 /datum/interaction/headpat
-	description = "Погладить по голову. Aww..."
+	description = "Погладить по голове. Aww..."
 	require_user_hands = TRUE
 	simple_message = "USER гладит TARGET по голове!"
 	needs_physical_contact = TRUE

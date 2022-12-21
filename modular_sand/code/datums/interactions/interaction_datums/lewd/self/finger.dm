@@ -9,8 +9,6 @@
 	write_log_target = null
 
 /datum/interaction/lewd/fingerass_self/display_interaction(mob/living/user)
-	var/t_His = user.p_their()
-	var/t_Him = user.p_them()
 
 	user.visible_message("<span class='lewd'><b>[user]</b> [pick("проводит по своему анусу пальцем.",
 		"засовывает себе в задницу палец.",
@@ -29,7 +27,6 @@
 	write_log_target = null
 
 /datum/interaction/lewd/finger_self/display_interaction(mob/living/user)
-	var/t_His = user.p_their()
 
 	user.visible_message("<span class='lewd'><b>[user]</b> [pick("глубоко засовывает пальцы себе в киску.",
 		"проникает пальцем в свою вагину.",

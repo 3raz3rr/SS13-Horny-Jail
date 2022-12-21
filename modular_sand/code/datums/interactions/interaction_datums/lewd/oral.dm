@@ -24,7 +24,7 @@
 	if(partner.is_fucking(user, CUM_TARGET_MOUTH))
 		if(prob(partner.get_sexual_potency()))
 			user.adjustOxyLoss(3)
-			message = "вжимается в лицо <b>[partner]</b>!"
+			message = "вжимается лицом в киску <b>[partner]</b>!"
 			lust_increase += 5
 		else
 			var/improv = FALSE

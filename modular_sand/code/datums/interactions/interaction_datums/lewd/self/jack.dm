@@ -10,9 +10,6 @@
 
 /datum/interaction/lewd/jack/display_interaction(mob/living/user)
 	var/message
-	var/t_His = user.p_their()
-	var/t_Him = user.p_them()
-	var/genital_name = user.get_penetrating_genital_name()
 
 	if(user.is_fucking(user, CUM_TARGET_HAND))
 		message = "[pick("дрочит свой член.",

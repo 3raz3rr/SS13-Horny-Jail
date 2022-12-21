@@ -698,9 +698,6 @@
 /mob/living/proc/do_thighfuck(mob/living/target)
 	var/message
 	var/list/lines
-	var/u_His = p_their()
-	var/genital_name = get_penetrating_genital_name()
-	var/t_His = target.p_their()
 
 	if(is_fucking(target, CUM_TARGET_THIGHS))
 		lines = list(

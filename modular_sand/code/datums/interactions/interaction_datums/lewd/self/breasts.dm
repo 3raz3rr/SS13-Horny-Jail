@@ -10,7 +10,6 @@
 
 /datum/interaction/lewd/titgrope_self/display_interaction(mob/living/user)
 	var/message
-	var/t_His = user.p_their()
 
 	if(user.a_intent == INTENT_HARM)
 		message = "[pick("агрессивно хватает свою грудь.",
@@ -49,7 +48,6 @@
 
 /datum/interaction/lewd/self_nipsuck/display_interaction(mob/living/user, mob/living/target)
 	var/message
-	var/u_His = user.p_their()
 	var/obj/item/organ/genital/breasts/milkers = user.getorganslot(ORGAN_SLOT_BREASTS)
 	var/milktype = milkers?.fluid_id
 	var/modifier
