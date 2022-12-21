@@ -109,7 +109,6 @@
 /datum/interaction/lewd/footjob/display_interaction(mob/living/user, mob/living/partner)
 	var/message
 	var/shoes = user.get_shoes(TRUE)
-	var/genital_name = partner.get_penetrating_genital_name()
 
 	if(partner.is_fucking(src, CUM_TARGET_FEET))
 		message = "[pick("касается члена <b>[partner]</b> своей [shoes ? shoes : pick("ступней", "пяткой")].",
@@ -135,7 +134,6 @@
 /datum/interaction/lewd/footjob/double/display_interaction(mob/living/user, mob/living/partner)
 	var/message
 	var/shoes = user.get_shoes()
-	var/genital_name = partner.get_penetrating_genital_name()
 
 	if(partner.is_fucking(user, CUM_TARGET_FEET))
 		message = "[pick("касается члена <b>[partner]</b> своими [shoes ? shoes : pick("ступнями", "пятками")].",
