@@ -1,8 +1,8 @@
 // If I could have gotten away with using a tilde in the type path, I would have.
 /datum/interaction/lewd
 	// Description can take in %COCK% as a wildcard to get replaced with a cock/strapon accordingly.
-	description = "Slap their ass."
-	simple_message = "USER slaps TARGET right on the ass!"
+	description = "Шлепнуть по заднице."
+	simple_message = "USER шлепает TARGET по заднице!"
 	simple_style = "danger"
 	interaction_sound = 'sound/weapons/slap.ogg'
 	needs_physical_contact = TRUE
@@ -518,16 +518,16 @@
 /mob/living/list_interaction_attributes(mob/living/LM)
 	. = ..()
 	if(!COOLDOWN_FINISHED(LM, refractory_period))
-		. += "...are sexually exhausted for the time being."
+		dat += "... хватает воздух ртом от усталости."
 	switch(a_intent)
 		if(INTENT_HELP)
-			. += "...are acting gentle."
+			dat += "... действует нежно."
 		if(INTENT_DISARM)
-			. += "...are acting playful."
+			dat += "... ведет себя игриво."
 		if(INTENT_GRAB)
-			. += "...are acting rough."
+			dat += "... ведет себя грубо."
 		if(INTENT_HARM)
-			. += "...are fighting anyone who comes near."
+			dat += "... яростно отбивается."
 	//Here comes the fucking weird shit.
 	if(client)
 		var/client/cli = client
@@ -536,44 +536,45 @@
 			if(!ucli || (ucli.prefs.extremepref != "No"))
 				if(!get_item_by_slot(ITEM_SLOT_EARS_LEFT) && !get_item_by_slot(ITEM_SLOT_EARS_RIGHT))
 					if(has_ears())
-						. += "...have unprotected ears."
+						dat += "... ты видишь уши."
 					else
-						. += "...have a hole where their ears should be."
+						dat += "... ты видишь отверстия на месте ушей."
 				else
-					. += "...have covered ears."
+					dat += "... ты видишь закрытые уши."
 				if(!get_item_by_slot(ITEM_SLOT_EYES))
 					if(has_eyes())
-						. += "...have exposed eyes."
+						dat += "... ты видишь глаза."
 					else
-						. += "...have exposed eyesockets."
+						dat += "... ты видишь глазницы."
 				else
-					. += "...have covered eyes."
+					dat += "... ты видишь завязанные глаза."
 	//
 	// check those loops only once, thanks
 	var/is_topless = is_topless()
 	var/is_bottomless = is_bottomless()
 	if(is_topless && is_bottomless)
-		. += "...are naked."
+		dat += "... ты видишь полностью обнаженное тело."
 	else
 		if((is_topless && !is_bottomless) || (!is_topless && is_bottomless))
-			. += "...are partially clothed."
+			dat += "... ты видишь практически голое тело."
 		else
-			. += "...are clothed."
+			dat += "... ты видишь одежду."
 	if(has_breasts(REQUIRE_EXPOSED))
-		. += "...have breasts."
+		dat += "... ты видишь грудь ([BREASTS_SIZE_DEF]-cups)."
 	if(has_penis(REQUIRE_EXPOSED))
-		. += "...have a penis."
+		dat += "... ты видишь член."
 	if(has_strapon(REQUIRE_EXPOSED))
-		. += "...have a strapon."
+		dat += "... ты видишь пристегнутый страпон."
 	if(has_balls(REQUIRE_EXPOSED))
-		. += "...have a ballsack."
+		dat += "... ты видишь яйца."
 	if(has_vagina(REQUIRE_EXPOSED))
-		. += "...have a vagina."
+		dat += "... ты видишь вагину."
 	if(has_anus(REQUIRE_EXPOSED))
-		. += "...have an anus."
+		dat += "... ты видишь анус."
 	if(has_feet(REQUIRE_EXPOSED))
 		switch(has_feet(REQUIRE_EXPOSED))
 			if(2)
-				. += "...have a pair of feet."
+				dat += "... ты видишь две ноги."
 			if(1)
-				. += "...have a single foot."
+				dat += "... ты видишь всего одну ногу."
+	return dat
