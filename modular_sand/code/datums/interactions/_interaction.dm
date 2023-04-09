@@ -10,18 +10,17 @@
 - Makes all the code good because yes as well - SandPoot
 **/
 
-/mob/proc/list_interaction_attributes()
-	return list()
-
-/mob/living/list_interaction_attributes()
-	. = ..()
+/mob/living/proc/list_interaction_attributes()
+	var/dat = list()
 	if(has_hands())
-		. += "...have hands."
+		dat += "... ты видишь руки."
 	if(has_mouth())
-		. += "...have a mouth, which is [mouth_is_free() ? "uncovered" : "covered"]."
+		dat += "... ты видишь [mouth_is_free() ? "закрытый одеждой рот" : "рот"]."
+	return dat
 
 /// The base of all interactions
 /datum/interaction
+	var/target_name
 	var/description = "Interact with them."
 	var/simple_message
 	var/simple_style = "notice"
@@ -48,17 +47,17 @@
 	if(require_user_mouth)
 		if(!user.has_mouth() && !issilicon(user)) //Again, silicons do not have the required parts normally.
 			if(!silent)
-				to_chat(user, span_warning("You don't have a mouth."))
+				to_chat(user, "<span class='warning'>У тебя нет рта.</span>")
 			return FALSE
 
 		if(!user.mouth_is_free() && !issilicon(user)) //Borgs cannot wear mouthgear, bypassing the check.
 			if(!silent)
-				to_chat(user, span_warning("Your mouth is covered."))
+				to_chat(user, "<span class='warning'>Твой рот чем-то закрыт.</span>")
 			return FALSE
 
 	if(require_user_hands && !user.has_hands() && !issilicon(user)) //Edited to allow silicons to interact.
 		if(!silent)
-			to_chat(user, span_warning("You don't have hands."))
+			to_chat(user, "<span class='warning'>У тебя нет рук.</span>")
 		return FALSE
 
 	if(COOLDOWN_FINISHED(user, last_interaction_time))
@@ -71,29 +70,31 @@
 
 /// Same as evaluate_user, but for target
 /datum/interaction/proc/evaluate_target(mob/living/user, mob/living/target, silent = TRUE)
+	target_name = target
+
 	if(SSinteractions.is_blacklisted(target))
 		return FALSE
 
 	if(!user_is_target)
 		if(user == target)
 			if(!silent)
-				to_chat(user, "<span class = 'warning'>You can't do that to yourself.</span>")
+				to_chat(user, "<span class = 'warning'>Ты не можешь это сделать с собой.</span>")
 			return FALSE
 
 	if(require_target_mouth)
 		if(!target.has_mouth())
 			if(!silent)
-				to_chat(user, "<span class = 'warning'>They don't have a mouth.</span>")
+				to_chat(user, "<span class = 'warning'>У них нет рта.</span>")
 			return FALSE
 
 		if(!target.mouth_is_free() && !issilicon(target))
 			if(!silent)
-				to_chat(user, "<span class = 'warning'>Their mouth is covered.</span>")
+				to_chat(user, "<span class = 'warning'>Их рот чем-то закрыт.</span>")
 			return FALSE
 
 	if(require_target_hands && !target.has_hands() && !issilicon(target))
 		if(!silent)
-			to_chat(user, "<span class = 'warning'>They don't have hands.</span>")
+			to_chat(user, "<span class = 'warning'>У них нет рук.</span>")
 		return FALSE
 
 	return TRUE
@@ -102,13 +103,13 @@
 /datum/interaction/proc/do_action(mob/living/user, mob/living/target)
 	if(!user_is_target)
 		if(user == target) //tactical href fix
-			to_chat(user, span_warning("You cannot target yourself."))
+			to_chat(user, "<span class='warning'>Ты не можешь это сделать с собой, выбери другу цель.</span>")
 			return
 	if(get_dist(user, target) > max_distance)
-		to_chat(user, span_warning("They are too far away."))
+		to_chat(user, "<span class='warning'>Слишком далеко.</span>")
 		return
 	if(needs_physical_contact && !(user.Adjacent(target) && target.Adjacent(user)))
-		to_chat(user, span_warning("You cannot get to them."))
+		to_chat(user, "<span class='warning'>У тебя не получается добраться до них.</span>")
 		return
 	if(!evaluate_user(user, silent = FALSE))
 		return
@@ -126,8 +127,8 @@
 /// Display the message
 /datum/interaction/proc/display_interaction(mob/living/user, mob/living/target)
 	if(simple_message)
-		var/use_message = replacetext(simple_message, "USER", "\the [user]")
-		use_message = replacetext(use_message, "TARGET", "\the [target]")
+		var/use_message = replacetext(simple_message, "USER", " [user]")
+		use_message = replacetext(use_message, "TARGET", " [target]")
 		user.visible_message("<span class='[simple_style]'>[capitalize(use_message)]</span>")
 
 /// After the interaction, the base only plays the sound and only if it has one
