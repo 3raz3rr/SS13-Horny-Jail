@@ -101,3 +101,25 @@
   - admin: Hypnotic Gaze quirk can now be added and removed mid-round
   - balance: Mech fabricators now use their access restrictions
   - balance: Removed access requirements for maintenance and off-station mech fabricators
+2023-03-29:
+  Anonymous (feat. Bagzerk):
+  - rscadd: 'Emote: \*agony.'
+2023-03-30:
+  BongaTheProto:
+  - balance: Removes the locks on protolathes and other machines
+  - balance: Well actually makes it a config but it's set to disable the locks so
+      potato tomato
+  CloverIsLucky:
+  - rscdel: Removed duplicated mining points card.
+  KeplerWasTaken:
+  - rscdel: Removes Die of Fate from Academy
+  - rscdel: Removes Die of Fate from Greed Ruin
+  - tweak: BO and BS arrival on station messages are now more fitting
+  - bugfix: Head of Staff and AI cryo messages no longer say you need to ahelp
+  PhazeJump:
+  - bugfix: Fixed the eastern dragon tail
+  - bugfix: Added a file for succubus tail wagging sprite
+  - bugfix: Added some code for the succubus tail not to disappear while wagging
+2023-03-31:
+  legumesan:
+  - rscadd: new hairstyle

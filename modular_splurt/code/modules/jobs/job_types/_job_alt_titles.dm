@@ -284,9 +284,13 @@
 		"Police Officer",
 		"Security Lieutenant"
 	)
+	var/list/rem_titles = list(
+		"Peacekeeper"
+	)
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
 		LAZYADD(extra_titles, "Spookcurity Officer")
 	LAZYADD(alt_titles, extra_titles)
+	LAZYREMOVE(alt_titles, rem_titles)
 	. = ..()
 
 /datum/job/warden/New()
